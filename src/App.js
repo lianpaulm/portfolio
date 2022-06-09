@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router } from 'react-router-dom';
+import GlobalStyles from './components/styles/Global';
+import { ThemeProvider } from 'styled-components';
+import { base, main } from './components/styles/Theme';
+
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Works from './components/Works';
+
+const theme = { ...base, colors: main };
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <>
+          <GlobalStyles />
+          <Header />
+          <div id="content">
+            <main>
+              <Hero />
+              <Works />
+            </main>
+          </div>
+        </>
+      </ThemeProvider>
+    </Router>
   );
 }
 
