@@ -16,12 +16,10 @@ function App() {
         <>
           <GlobalStyles />
           <Header />
-          <div id="content">
-            <main>
-              <Hero />
-              <Works />
-            </main>
-          </div>
+          <main>
+            <Hero />
+            <Works />
+          </main>
         </>
       </ThemeProvider>
     </Router>
