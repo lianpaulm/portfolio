@@ -4,15 +4,17 @@ import { Link as LinkS } from 'react-scroll';
 
 export const StyledHeader = styled.header`
   height: 4.3rem;
+  width: 100%;
   display: flex;
   align-items: center;
   background: ${({ theme }) => theme.colors.white};
-  box-shadow: ${({ theme }) => theme.shadow[0]};
+  box-shadow: ${({ theme, isShow }) => isShow && theme.shadow[0]};
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
-  width: 100%;
+  transform: translateY(${({ isShow }) => (isShow ? '0' : '-100%')});
+  transition: ${({ theme }) => theme.transition};
 `;
 
 export const Logo = styled(LinkR)`
@@ -34,7 +36,7 @@ export const NavContainer = styled.div`
 export const Navbar = styled.nav`
   ul {
     display: flex;
-    gap: 1.2rem;
+    gap: 1.3rem;
   }
 
   @media screen and (max-width: 768px) {
@@ -70,7 +72,7 @@ export const Sidebar = styled.aside`
   position: fixed;
   top: 0;
   right: 0;
-  bottom: 0;
+  height: 100vh;
   z-index: 50;
   width: min(75vw, 400px);
   background: ${({ theme }) => theme.colors.white};

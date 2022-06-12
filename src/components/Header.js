@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { HiOutlineMenu, HiOutlineX } from 'react-icons/hi';
 import { animateScroll as scroll } from 'react-scroll';
 import { navLinks } from '../data';
+import { debounce } from '../utils/helpers';
 
 // styles
 import {
@@ -17,7 +18,10 @@ import {
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isShow, setIsShow] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
+  // remove sidebar when width of window is greater then 768px
   const onResize = (e) => {
     if (e.currentTarget.innerWidth > 768) {
       setIsOpen(false);
@@ -31,8 +35,33 @@ const Header = () => {
     };
   }, []);
 
+  // navbar hide and show on scroll
+  const onScroll = debounce(() => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll > lastScrollY) {
+      setIsShow(false);
+    } else if (currentScroll < lastScrollY) {
+      setIsShow(true);
+    }
+
+    setLastScrollY(currentScroll);
+  }, 10);
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [lastScrollY, isShow, onScroll]);
+
+  // remove scroll when sidebar open
+  isOpen
+    ? (document.body.style.overflow = 'hidden')
+    : (document.body.style.overflow = 'visible');
+
   return (
-    <StyledHeader>
+    <StyledHeader isShow={isShow}>
       <NavContainer>
         <Logo to="/" onClick={() => scroll.scrollToTop()}>
           lianpaulm.
