@@ -27,8 +27,8 @@ const GlobalStyles = createGlobalStyle`
 
 body {
   font-family: ${({ theme }) => theme.fonts.body};
-  background:  ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.text};
+  background:  #fff;
   line-height: 1.5;
 }
 
@@ -43,18 +43,20 @@ a {
 }
 
 button {
+  font-family: ${({ theme }) => theme.fonts.body};
   cursor: pointer;
   display: inline-block;
   background: none;
   border: none;
+  line-height: 1;
 }
 
 h1,
 h2,
 h3,
 h4 {
+  font-family: ${({ theme }) => theme.fonts.header};
   line-height: 1.25;
-  margin-bottom: 0.75rem;
 }
 
 img,

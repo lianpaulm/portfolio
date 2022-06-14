@@ -7,7 +7,7 @@ export const StyledHeader = styled.header`
   width: 100%;
   display: flex;
   align-items: center;
-  background: ${({ theme }) => theme.colors.white};
+  background: #fff;
   box-shadow: ${({ theme, isShow }) => isShow && theme.shadow[0]};
   position: fixed;
   top: 0;
@@ -45,7 +45,7 @@ export const Navbar = styled.nav`
 `;
 
 export const NavLinkS = styled(LinkS)`
-  color: ${({ theme }) => theme.fonts.black};
+  color: ${({ theme }) => theme.colors.text};
   padding: 0.3rem 0.5rem;
   text-transform: capitalize;
   font-weight: 700;
@@ -62,7 +62,7 @@ export const MenuIcon = styled.button`
   @media screen and (max-width: 768px) {
     display: block;
     font-size: 1.9rem;
-    color: ${({ theme }) => theme.colors.black};
+    color: ${({ theme }) => theme.colors.text};
     position: relative;
     z-index: 200;
   }
@@ -75,7 +75,7 @@ export const Sidebar = styled.aside`
   height: 100vh;
   z-index: 50;
   width: min(75vw, 400px);
-  background: ${({ theme }) => theme.colors.white};
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
