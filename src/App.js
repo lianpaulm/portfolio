@@ -5,7 +5,7 @@ import { base, main } from './components/styles/Theme';
 
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Works from './components/Works';
+import Projects from './components/Projects';
 
 const theme = { ...base, colors: main };
 
@@ -18,7 +18,7 @@ function App() {
           <Header />
           <main>
             <Hero />
-            <Works />
+            <Projects />
           </main>
         </>
       </ThemeProvider>
