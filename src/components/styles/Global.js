@@ -55,7 +55,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: ${({ theme }) => theme.fonts.header};
+  font-family: ${({ theme }) => theme.fonts.heading};
   line-height: 1.25;
 }
 

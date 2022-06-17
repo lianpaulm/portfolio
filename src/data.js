@@ -1,4 +1,5 @@
 import { FaRegEnvelope, FaGithub } from 'react-icons/fa';
+import { MdArrowRight } from 'react-icons/md';
 
 export const navLinks = [
   {
@@ -79,3 +80,11 @@ export const projects = [
     image: '/images/thumbnail.png',
   },
 ];
+
+export const skills = {
+  language: ['Javascript (ES6+)', 'HTML', 'CSS/SASS'],
+  libraries: ['React', 'Styled Components'],
+  tools: ['Git & Github', 'Figma'],
+  experience: ['Redux', 'Node.js', 'Express', 'MongoDB'],
+  icon: <MdArrowRight />,
+};
