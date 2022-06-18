@@ -51,6 +51,10 @@ button {
   line-height: 1;
 }
 
+input,textarea {
+  font-family: ${({ theme }) => theme.fonts.body};
+}
+
 h1,
 h2,
 h3,

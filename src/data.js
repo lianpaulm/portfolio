@@ -1,5 +1,10 @@
-import { FaRegEnvelope, FaGithub } from 'react-icons/fa';
-import { MdArrowRight } from 'react-icons/md';
+import {
+  FaRegEnvelope,
+  FaEnvelope,
+  FaGithub,
+  FaPhoneAlt,
+} from 'react-icons/fa';
+import { MdArrowRight, MdLocationOn } from 'react-icons/md';
 
 export const navLinks = [
   {
@@ -88,3 +93,18 @@ export const skills = {
   experience: ['Redux', 'Node.js', 'Express', 'MongoDB'],
   icon: <MdArrowRight />,
 };
+
+export const contactInfo = [
+  {
+    text: 'lianpaul.molo@gmail.com',
+    icon: <FaEnvelope />,
+  },
+  {
+    text: '09656716385',
+    icon: <FaPhoneAlt />,
+  },
+  {
+    text: 'Block 16 Lot 36 Saint Paul St, San Jose Del Monte City, Bulacan',
+    icon: <MdLocationOn />,
+  },
+];
