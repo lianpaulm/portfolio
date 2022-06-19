@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { contactInfo } from '../data';
 import {
   Button,
@@ -19,6 +20,26 @@ const Contact = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    emailjs
+      .sendForm(
+        'service_npi6kbb',
+        'template_ac8fzpe',
+        e.target,
+        'RA9xI5MkfucVZepw5'
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+
+    setName('');
+    setEmail('');
+    setMessage('');
   };
 
   return (
@@ -35,6 +56,8 @@ const Contact = () => {
                   id="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  name="name"
+                  required={true}
                 />
               </FormControl>
               <FormControl>
@@ -44,6 +67,8 @@ const Contact = () => {
                   id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  name="email"
+                  required={true}
                 />
               </FormControl>
               <FormControl>
@@ -53,6 +78,8 @@ const Contact = () => {
                   rows="4"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
+                  name="message"
+                  required={true}
                 />
               </FormControl>
               <Button type="submit">Send Message</Button>

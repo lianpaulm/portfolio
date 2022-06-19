@@ -56,10 +56,15 @@ export const Button = styled.button`
   background: ${({ theme }) => theme.colors.primary};
   font-size: 1rem;
   color: #fff;
+  transition: ${({ theme }) => theme.transition};
+
+  &:hover {
+    background: #6334e8;
+  }
 `;
 
 export const Info = styled.ul`
-  padding-top: 2rem;
+  padding-top: 1.5rem;
   padding-left: 6rem;
 
   @media screen and (max-width: 980px) {
